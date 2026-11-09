@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>fiona — кому цветы? Подбор букета и доставка по Ташкенту</title>
+<meta name="description" content="Fiona, Ташкент: подберите букет по поводу и бюджету. Доставка по Ташкенту 30–60 минут, каждый день 9:00–01:00.">
+<meta name="theme-color" content="#A3123F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2218%22 fill=%22%23A3123F%22/%3E%3Ctext x=%2232%22 y=%2245%22 font-family=%22Georgia,serif%22 font-size=%2240%22 fill=%22%23FFF3E2%22 text-anchor=%22middle%22%3Ef%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Onest:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#finder" data-i18n="skip">К подбору букета</a>
+
+<header class="top" id="top">
+  <a class="logo" href="#finder" aria-label="fiona">fiona</a>
+  <nav class="nav" aria-label="Разделы">
+    <a href="#swipe" data-i18n="nav.swipe">Свайп</a>
+    <a href="#occasions" data-i18n="nav.occ">Поводы</a>
+    <a href="#photos" data-i18n="nav.photos">Ваши фото</a>
+    <a href="#vases" data-i18n="nav.vases">Вазы</a>
+    <a href="#peony" data-i18n="nav.peony">Пионы и невесты</a>
+    <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
+  </nav>
+  <div class="top-actions">
+    <div class="lang" role="group" aria-label="Язык / Til">
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" data-lang="uz" aria-pressed="false">UZ</button>
+    </div>
+    <button type="button" class="tray-btn" id="trayBtn" aria-label="Избранное">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.5 1.1 4.4 2.5.2.3.6.3.8 0 .9-1.4 2.3-2.5 4.4-2.5 3.7 0 5.8 3.8 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>
+      <span class="tray-count" id="trayCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO: GIFT FINDER ============ -->
+<section class="finder" id="finder" aria-labelledby="finderTitle">
+  <div class="finder-left">
+    <h1 class="sentence" id="finderTitle">
+      <span data-i18n="s.a">Хочу порадовать</span>
+      <span class="nw"><span class="chip" role="button" tabindex="0" data-chip="who" aria-haspopup="listbox"><span class="chip-v"></span><i aria-hidden="true"></i></span><span data-i18n="s.b1">,</span></span>
+      <span data-i18n="s.b">потому что</span>
+      <span class="nw"><span class="chip" role="button" tabindex="0" data-chip="why" aria-haspopup="listbox"><span class="chip-v"></span><i aria-hidden="true"></i></span>,</span>
+      <span data-i18n="s.c">бюджет</span>
+      <span class="chip" role="button" tabindex="0" data-chip="budget" aria-haspopup="listbox"><span class="chip-v"></span><i aria-hidden="true"></i></span>
+    </h1>
+    <p class="finder-hint" data-i18n="s.hint">Нажмите на подчёркнутое, чтобы поменять. Букеты справа — настоящие работы Fiona с ценами из их Instagram.</p>
+    <ul class="facts">
+      <li><b data-i18n="f1a">30–60 мин</b><span data-i18n="f1b">доставка по Ташкенту</span></li>
+      <li><b>9:00–01:00</b><span data-i18n="f2b">каждый день</span></li>
+      <li><a href="https://yandex.uz/maps/org/fiona/105980229330/reviews/" target="_blank" rel="noopener"><b>4,8 ★</b><span data-i18n="f3b">82 оценки на Яндексе</span></a></li>
+    </ul>
+  </div>
+
+  <div class="finder-right">
+    <div class="stack-wrap">
+      <div class="stack" id="stack" aria-live="polite"></div>
+      <div class="stack-bar">
+        <button type="button" class="round ghost" id="stackPrev" aria-label="Предыдущий"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <span class="stack-count" id="stackCount">1 / 8</span>
+        <button type="button" class="round ghost" id="stackNext" aria-label="Следующий"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="thumbs" id="thumbs" aria-label="Другие варианты"></div>
+  </div>
+  <div class="popover" id="popover" role="listbox" hidden></div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+<!-- ============ SWIPE ============ -->
+<section class="swipe" id="swipe" aria-labelledby="swipeTitle">
+  <div class="swipe-head">
+    <h2 id="swipeTitle" data-i18n="sw.t">Tinder для букетов</h2>
+    <p data-i18n="sw.p">Листайте вправо то, что нравится, влево — дальше. Понравившиеся собираются в избранное, оттуда — сразу в заказ.</p>
+    <div class="filters" role="group" aria-label="Фильтр" id="filters"></div>
+  </div>
+
+  <div class="deck-area">
+    <div class="deck" id="deck" tabindex="0" aria-label="Колода букетов. Стрелки влево и вправо."></div>
+    <div class="deck-ctrl">
+      <button type="button" class="round big nope" id="btnNope" aria-label="Дальше"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button type="button" class="round undo" id="btnUndo" aria-label="Вернуть"><svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 010 12h-3"/></svg></button>
+      <button type="button" class="round big like" id="btnLike" aria-label="Хочу"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.5 1.1 4.4 2.5.2.3.6.3.8 0 .9-1.4 2.3-2.5 4.4-2.5 3.7 0 5.8 3.8 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg></button>
+    </div>
+    <p class="deck-keys" data-i18n="sw.keys">На компьютере: ← дальше, → хочу, Backspace — вернуть</p>
+  </div>
+
+  <aside class="mini-tray" aria-labelledby="miniTitle">
+    <h3 id="miniTitle" data-i18n="tray.t">Избранное</h3>
+    <div class="mini-list" id="miniList"></div>
+    <p class="mini-empty" id="miniEmpty" data-i18n="tray.empty">Пока пусто. Свайпните вправо букет, который нравится.</p>
+    <button type="button" class="btn solid" id="miniOrder" data-i18n="tray.order">Собрать заказ</button>
+  </aside>
+</section>
+
+<!-- ============ OCCASIONS ============ -->
+<section class="occ" id="occasions" aria-labelledby="occTitle">
+  <div class="occ-head">
+    <h2 id="occTitle" data-i18n="occ.t">Поводы</h2>
+    <p class="occ-next" id="occNext"></p>
+  </div>
+  <div class="occ-strip" id="occStrip"></div>
+</section>
+
+<!-- ============ PHOTOS ============ -->
+<section class="photos" id="photos" aria-labelledby="phTitle">
+  <div class="photos-head">
+    <h2 id="phTitle" data-i18n="ph.t">Ваши фотографии</h2>
+    <p data-i18n="ph.p">Так букеты Fiona выглядят у тех, кто их получил: снимки клиентов из раздела «Ваши фотографии» в Instagram магазина.</p>
+    <a class="yandex" href="https://yandex.uz/maps/org/fiona/105980229330/reviews/" target="_blank" rel="noopener">
+      <span class="y-num">4,8</span>
+      <span class="y-txt"><b data-i18n="ph.y1">из 5 на Яндекс Картах</b><span data-i18n="ph.y2">82 оценки · читать отзывы</span></span>
+    </a>
+    <ul class="themes">
+      <li data-i18n="ph.r1">Быстро и точно доставляют</li>
+      <li data-i18n="ph.r2">Свежие цветы</li>
+      <li data-i18n="ph.r3">Вежливые флористы</li>
+      <li data-i18n="ph.r4">Работают допоздна</li>
+    </ul>
+  </div>
+  <div class="helix" id="helix" aria-label="Фотографии клиентов в 3D. Тяните, чтобы покрутить.">
+    <p class="helix-hint" data-i18n="ph.hint">Тяните, чтобы покрутить. Нажмите на фото, чтобы рассмотреть.</p>
+  </div>
+  <div class="wall" id="wall"></div>
+</section>
+
+<!-- ============ VASES ============ -->
+<section class="vases" id="vases" aria-labelledby="vTitle">
+  <div class="vases-head">
+    <h2 id="vTitle" data-i18n="v.t">Добавить к букету</h2>
+    <p data-i18n="v.p">Ваза — чтобы букет не стоял в ведре. Нажмите «+», и она попадёт в текст заказа.</p>
+    <div class="v-nav">
+      <button type="button" class="round ghost dark" id="vPrev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="round ghost dark" id="vNext" aria-label="Вперёд"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+  <div class="v-row" id="vRow"></div>
+</section>
+
+<!-- ============ PEONY + BRIDE ============ -->
+<section class="duo" id="peony">
+  <div class="peony" aria-labelledby="pTitle">
+    <div class="duo-head">
+      <h2 id="pTitle" data-i18n="p.t">Пионы</h2>
+      <p data-i18n="p.p">Цены из раздела «Пионы» у Fiona. Пионы бывают не круглый год — наличие уточнит флорист.</p>
+    </div>
+    <div class="peony-row" id="peonyRow"></div>
+  </div>
+  <div class="bride" id="bride" aria-labelledby="bTitle">
+    <div class="duo-head">
+      <h2 id="bTitle" data-i18n="b.t">Букет невесты</h2>
+      <p data-i18n="b.p">Белые розы, гипсофила, пионовидные розы. Цены — те, что стоят на фото в разделе «Букет невесты».</p>
+    </div>
+    <div class="bride-grid" id="brideGrid"></div>
+  </div>
+</section>
+
+<!-- ============ CARE + CONTACTS ============ -->
+<section class="contacts" id="contacts" aria-labelledby="cTitle">
+  <div class="c-main">
+    <h2 id="cTitle" data-i18n="c.t">Заказать можно прямо сейчас</h2>
+    <p class="c-lead" data-i18n="c.lead">Доставка только по Ташкенту, 30–60 минут. Каждый день с 9:00 до 01:00.</p>
+    <div class="c-actions">
+      <a class="btn cream" href="tel:+998971061171">+998 97 106-11-71</a>
+      <a class="btn line" href="https://t.me/fiona_tashkent" target="_blank" rel="noopener">Telegram</a>
+      <a class="btn line" href="https://ig.me/m/fiona_tashkent" target="_blank" rel="noopener">Instagram Direct</a>
+    </div>
+    <div class="c-addr">
+      <p><b data-i18n="c.addrL">Магазин</b><span data-i18n="c.addr">ул. Абдуллы Каххора, 47А, Ташкент</span></p>
+      <a class="map-link" href="https://yandex.uz/maps/org/fiona/105980229330/" target="_blank" rel="noopener" data-i18n="c.map">Открыть на Яндекс Картах</a>
+    </div>
+  </div>
+  <div class="care">
+    <h3 data-i18n="care.t">Чтобы букет стоял дольше</h3>
+    <ol>
+      <li data-i18n="care.1">Вымойте вазу с моющим средством.</li>
+      <li data-i18n="care.2">Налейте прохладную, но не ледяную воду.</li>
+      <li data-i18n="care.3">Уберите нижние листья — в воде они дают бактерии.</li>
+      <li data-i18n="care.4">Подрежьте стебли под углом 45°.</li>
+      <li data-i18n="care.5">Держите букет в прохладе: подальше от батареи, солнца и кондиционера.</li>
+      <li data-i18n="care.6">Меняйте воду каждый день и мойте вазу.</li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span class="logo small">fiona</span>
+  <span data-i18n="foot.a">Цветы Ташкент · Доставка · Магазин подарков</span>
+  <span class="concept" data-i18n="foot.c">Концепт сайта · Lumagen</span>
+</footer>
+
+<!-- ============ TRAY DRAWER ============ -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-bg" data-close></div>
+  <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <div class="drawer-head">
+      <h3 id="drawerTitle" data-i18n="tray.t">Избранное</h3>
+      <button type="button" class="round ghost dark" data-close aria-label="Закрыть"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="drawer-list" id="drawerList"></div>
+    <p class="mini-empty" id="drawerEmpty" data-i18n="tray.empty">Пока пусто. Свайпните вправо букет, который нравится.</p>
+    <button type="button" class="btn solid wide" id="drawerOrder" data-i18n="tray.order">Собрать заказ</button>
+  </aside>
+</div>
+
+<!-- ============ ORDER COMPOSER ============ -->
+<dialog class="composer" id="composer" aria-labelledby="compTitle">
+  <form method="dialog" class="comp" id="compForm" novalidate>
+    <div class="comp-head">
+      <h3 id="compTitle" data-i18n="o.t">Ваш заказ</h3>
+      <button type="button" class="round ghost dark" id="compClose" aria-label="Закрыть"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="comp-body">
+      <div class="comp-items">
+        <p class="lbl" data-i18n="o.items">Что везём</p>
+        <div id="compItems"></div>
+        <div id="compExtras"></div>
+        <p class="comp-total"><span data-i18n="o.total">Итого по ценам из Instagram</span><b id="compTotal">0</b></p>
+        <p class="comp-note" data-i18n="o.note">Стоимость доставки и наличие подтвердит флорист.</p>
+      </div>
+      <div class="comp-fields">
+        <label><span data-i18n="o.to">Кому (имя)</span><input name="to" autocomplete="off"></label>
+        <label><span data-i18n="o.toPhone">Телефон получателя</span><input name="toPhone" type="tel" inputmode="tel" placeholder="+998"></label>
+        <div class="two">
+          <label><span data-i18n="o.date">Дата</span><input name="date" type="date"></label>
+          <label><span data-i18n="o.time">Время</span><select name="time" id="timeSel"></select></label>
+        </div>
+        <label><span data-i18n="o.district">Район Ташкента</span><select name="district" id="distSel"></select></label>
+        <label><span data-i18n="o.addr">Адрес</span><input name="addr" autocomplete="off"></label>
+        <label><span data-i18n="o.card">Текст открытки</span><textarea name="card" rows="2" maxlength="300"></textarea></label>
+        <label class="check"><input type="checkbox" name="photo" checked><span data-i18n="o.photo">Пришлите, пожалуйста, фото букета перед отправкой</span></label>
+        <label class="check"><input type="checkbox" name="anon"><span data-i18n="o.anon">Не говорить получателю, от кого</span></label>
+      </div>
+    </div>
+    <div class="comp-out">
+      <p class="lbl" data-i18n="o.msg">Текст заказа — отправьте его удобным способом</p>
+      <pre id="compMsg"></pre>
+      <div class="comp-actions">
+        <a class="btn solid" href="tel:+998971061171" data-i18n="o.call">Позвонить</a>
+        <button type="button" class="btn line dark" id="copyBtn" data-i18n="o.copy">Скопировать текст</button>
+        <a class="btn line dark" id="tgBtn" href="https://t.me/fiona_tashkent" target="_blank" rel="noopener">Telegram</a>
+        <a class="btn line dark" id="igBtn" href="https://ig.me/m/fiona_tashkent" target="_blank" rel="noopener">Instagram Direct</a>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="lightbox" id="lightbox" aria-label="Фото">
+  <img id="lbImg" alt="">
+  <button type="button" class="round lb-close" data-lb-close aria-label="Закрыть"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
